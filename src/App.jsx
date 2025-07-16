@@ -14,7 +14,7 @@ function App() {
           <p>นี่คือ React App ที่สร้างด้วย Vite</p>
           <p>คลิกปุ่มด้านล่างเพื่อดูการทำงาน</p>
           
-          <button onClick={() => setCount((count) => count + 1)}>
+          <button onClick={() => setCount(count + 1)}>
             คลิกแล้ว {count} ครั้ง
           </button>
         </div>
