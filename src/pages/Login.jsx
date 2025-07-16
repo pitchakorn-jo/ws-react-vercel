@@ -5,11 +5,13 @@ import Card from '../components/ui/Card'
 import Input from '../components/ui/Input'
 import Button from '../components/ui/Button'
 import Logo from '../components/ui/Logo'
+import DatePicker from '../components/ui/DatePicker'
 
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
+    birthdate: ''
   })
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
@@ -20,7 +22,7 @@ function Login() {
     
     // Simulate API call
     setTimeout(() => {
-      alert(`ล็อกอินสำเร็จ! Email: ${formData.email}`)
+      alert(`ล็อกอินสำเร็จ! Email: ${formData.email}, วันเกิด: ${formData.birthdate || 'ไม่ระบุ'}`)
       setIsLoading(false)
       navigate('/')
     }, 1500)
@@ -74,6 +76,15 @@ function Login() {
                 onChange={handleChange}
                 placeholder="กรุณาใส่รหัสผ่าน"
                 required
+              />
+
+              {/* Birthdate Field */}
+              <DatePicker
+                label="วันเกิด"
+                value={formData.birthdate}
+                onChange={handleChange}
+                placeholder="เลือกวันเกิดของคุณ"
+                maxDate={new Date().toISOString().split('T')[0]}
               />
 
               {/* Remember & Forgot */}
